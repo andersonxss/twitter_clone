@@ -51,6 +51,7 @@ main .conatainer-perfil .container-capa .capa {
 main .conatainer-perfil .container-capa .capa img{
     width: 100%;
     min-height: 90px;
+    max-height: 200px;
     background-color: #e6e6e6;
 
 }
