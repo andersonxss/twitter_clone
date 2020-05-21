@@ -36,6 +36,7 @@ import './login.css';
                                                                       name:data.name,
                                                                       login:data.login,
                                                                       url:data.url,
+                                                                      capa:data.capa,
                                                                       }));
                     setRedirect(true);
                 } else {
