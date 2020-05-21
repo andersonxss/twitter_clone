@@ -1,0 +1,129 @@
+.main-container .list-post-container{
+    width: 100%;
+  height: auto;
+
+}
+
+.main-container .list-post-container .list-post-item{
+    width: 100%;
+    height: auto;
+    display: flex;
+    border-bottom: 1px rgb(37, 50, 65) solid;
+    cursor: pointer;
+}
+
+.main-container .list-post-container .list-post-item:hover{
+    background-color: rgb(42, 56, 70);
+}
+
+.main-container .list-post-container .list-post-item .post-foto{
+    width: 15%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.main-container .list-post-container .list-post-item .post-foto img{
+    width: 40px;
+    height: 40px;
+    border-radius: 70px;
+  
+}
+
+.main-container .list-post-container .list-post-item .post-descricao{
+    width: 85%;
+    height: auto;
+    padding: 10px;
+    color: white;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-item p {
+ margin-bottom:10px;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-item img {
+    width: 300px;
+    margin:0 auto;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-action {
+    margin-top: 10px;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-action ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 80%;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-action ul li a{
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-action ul li a:hover{
+    color: #16bf63;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao .post-descricao-action ul li a svg{
+       margin-right: 5px;
+    font-size: 18px;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao-topo{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao-topo .post-nome{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao-topo .post-nome a{
+   color: white;
+   text-decoration: none;
+  font-size: 16px;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao-topo .post-nome a:hover{
+  text-decoration: underline;
+}
+
+.main-container .list-post-container .list-post-item .post-descricao-topo .post-data{
+    color: #757575;
+    font-size: 15px;
+}
+
+.loader {
+  border: 5px solid #294461cc;
+  border-radius: 50%;
+  border-top: 5px solid #3498db;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+     margin: 10px auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

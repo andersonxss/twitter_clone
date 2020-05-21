@@ -1,0 +1,6 @@
+main .main-right{
+    float: left;
+    width: 15%;
+    height: 100vh;
+    border-left:1px #676767 solid;
+}

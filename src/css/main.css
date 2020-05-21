@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: rgb(21, 32, 43);
+    overflow: hidden;
+}
+
+main{
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+   
+}
+
+
+main .main-container{
+    float: left;
+    max-width: 600px;
+    min-width: 400px;
+    width:50%;
+    overflow-y: scroll;
+}
+
+main .main-container .topo{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px #676767 solid;
+}
+
+main .main-container .topo span{
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+main .main-container .topo svg{
+    color: rgb(23, 191, 99);
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+main .main-container .topo svg:hover{
+    background: rgba(23, 191, 99, 0.13);
+  
+    border-radius: 30px;
+}
+
+.inativo{
+    color: #ffffff52!important;
+    cursor: default!important;
+    
+}
+
+.inativo:hover{
+    color: #ffffff52!important;
+    cursor: default!important;
+      
+        background: #17ce6a00!important;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 2px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #ffffff00; 
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #ffffff00; 
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
+textarea:focus,input:focus,a:focus,button:focus{
+  outline: none !important;
+    border: none !important;
+}

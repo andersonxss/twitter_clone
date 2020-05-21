@@ -1,0 +1,88 @@
+main .main-left{
+    float: left;
+    width: 35%;
+    height: 100vh;
+    border-right: 1px #676767 solid;
+}
+
+main .main-left .logo{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 18px;
+}
+
+main .main-left .logo a{
+    color: white;
+    font-size: 30px;
+}
+
+main .main-left .menu ul{
+   
+    margin: 0;
+  list-style: none;
+
+}
+
+main .main-left .menu ul li {
+    width: auto;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 14px;
+
+}
+
+main .main-left .menu ul li a{
+    width: 70%;
+    height: 40px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+
+main .main-left .menu ul li a svg{
+    margin-right: 15px;
+}
+
+main .main-left .menu ul li :hover{
+    color: rgb(23, 191, 99);
+    background: rgba(23, 191, 99, 0.13);
+    border-radius: 20px;
+
+}
+
+main .main-left .tweetar a{
+    max-width: 215px;
+    height: 47px;
+    color: white;
+    background: rgb(23, 191, 99);
+    text-decoration: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+main .main-left .tweetar a:hover{
+    background: rgba(23, 191, 99, 0.81);
+}
+
+
+@media (max-width:920px) {
+
+    main .main-left .menu ul li a span{
+        display:none;
+    }
+
+     main .main-left .tweetar{
+          display:none;
+     }
+}

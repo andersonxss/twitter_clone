@@ -1,0 +1,136 @@
+.main-container .area-tuitar{
+    padding: 10px;
+    border-bottom: 10px rgb(37, 50, 65) solid;
+}
+
+.main-container .area-tuitar .area-tuitar-container{
+    display: flex;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-left{
+    width: 10%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-left a img{
+    width: 40px;
+    height: 40px;
+    border-radius: 70px;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right{
+    width: 90%;
+    height: auto;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right .form-post{
+    width: 94%;
+    height: 32px;
+    background: #141f2b;
+    font-size: 16px;
+    color: white;
+    border-color: #141f2b;
+    padding: 13px;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right .area-tuitar-midia{
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right .area-tuitar-midia-action{
+    display: none;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right .area-tuitar-midia img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right .area-tuitar-midia button{
+    width: 30px;
+    height: 30px;
+    background: #000000ad;
+    border-radius: 30px;
+    border-color: #000000ad;
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.main-container .area-tuitar .area-tuitar-container .area-tuitar-right .area-tuitar-midia button:hover{
+    background: #00000082;
+    color: #ffffffc9;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post ul{
+    float: left;
+    width: 40%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post ul li a{
+    color: #16bf63;
+    font-size: 20px;
+    padding: 6px;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post ul li a:hover{
+    background: #17ce6a2e;
+    border-radius: 30px;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post ul li .svg{
+     color: #16bf63;
+    font-size: 20px;
+    padding: 8px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post ul li .svg:hover{
+    background: #17ce6a2e;
+    border-radius: 30px;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post button{
+      width: 85px;
+    margin-right: 5px;
+    background: #16bf63;
+    border: 1px #16bf63 solid;
+    height: 37px;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    /* font-weight: bold; */
+    cursor: pointer;
+}
+
+.main-container .area-tuitar .area-tuitar-right .list-icones-post button:hover{
+    background: #16bf63bd;
+    border: 1px #16bf63bd solid;
+}

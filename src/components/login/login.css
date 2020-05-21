@@ -1,0 +1,138 @@
+body{
+    background-color: rgb(21, 32, 43);
+}
+
+.login-container{
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-container .login-form{
+     width: 530px;
+    height: auto;
+    margin: 20px auto;
+}
+
+.login-container .login-form svg{
+    color: white;
+    font-size: 40px;
+    margin: 0px auto;
+    display: table;
+}
+
+
+.login-container .login-form img{
+    margin: 0 auto;
+    display: table;
+    width: 50%;
+}
+
+.login-container .login-form .titulo{
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-container .login-form form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.login-container .login-form form .input-block + .input-block{
+    margin-top: 20px;
+}
+
+.login-container .login-form form .input-group{
+    margin-top: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.login-container .login-form form .input-block{
+    margin-top: 0px;
+    background: #35495f47;
+    border-bottom: 1px solid #eee;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.login-container .login-form form .input-block label{
+    color: #d4d4d4;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    background: #35495f00;
+        padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.login-container .login-form form .input-block input{
+    width:100%;
+    height: 32px;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+   
+    background: #35495f00;
+    font-size: 16px;
+}
+
+
+.login-container .login-form form button[type=submit]{
+    width: 100%;
+    margin-top: 20px;
+    background: #141f2b;
+    border-radius: 20px;
+    border: 1px #15a0f2 solid;
+    color: #ffffff;
+    font-size: 15px;
+    height: 40px;
+    line-height: 10px;
+    background: #15a0f2;
+}
+
+.login-container .login-form .action{
+ color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.login-container .login-form .file-select{
+    width: 100%;
+    height: auto;
+
+}
+
+.login-container .login-form .file-select-action{
+
+    display: none;
+}
+
+.login-container .login-form .file-select img{
+    max-width: 480px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.login-container .login-form ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.login-container .login-form ul li{ margin-left: 10px;}
+
+.login-container .login-form ul li a{ 
+    color: #15a0f2;
+    text-decoration: none;
+}
+
+.login-container .login-form ul li a:hover{ 
+    text-decoration: underline;
+}
