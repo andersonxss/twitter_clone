@@ -18,7 +18,7 @@ main .main-left .logo a{
 }
 
 main .main-left .menu ul{
-   
+    width: 50%;
     margin: 0;
   list-style: none;
 
@@ -33,7 +33,7 @@ main .main-left .menu ul li {
 }
 
 main .main-left .menu ul li a{
-    width: 70%;
+    width: auto;
     height: 40px;
     text-decoration: none;
     color: white;
