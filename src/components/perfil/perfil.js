@@ -15,21 +15,26 @@ function Perfil(props){
 
             const file = acceptedFiles[0];
             const storage = firebase.storage();
-        
+            //Guardando os dados do upload na storage do firebase
             const uploadTask = storage.ref(`perfil/${file.name}`).put(file);
                 uploadTask.on('state_changed',(snapshot)=>{},(error)=>{
 
                 },()=>{
                     storage.ref('perfil').child(file.name).getDownloadURL().then(url=>{
                         const db = firebase.firestore();
+                        //Se a action for perfil o upload irá corresponder para a foto do perfil do usuário
+                        // Se não o upload irá para a capa do usuário
                         const fileSelect = (actionFile==='perfil'?{url:url}:{capa:url});
-                     
+                        //Após receber o request de upload, faremos uma nova requisição 
+                        //para guardar a url da imagem na collectiond o usuário
                         db.collection('tweet-perfil-user').doc(props.sesion.id).update(fileSelect).then(function(){
                             console.log("Document successfully written!");
+                            //Pegando os dados guardado na localStorage para a realização do update
                             const session = JSON.parse(localStorage.getItem('session'));
-                           
                             const sessionUpdate = ( actionFile==='perfil'? session.url=url : session.capa=url);
                             localStorage.setItem("session",JSON.stringify(session));
+                            //A função GetAllUser corresponde para atualizar 
+                            //as informações da sessão do usário que se encontra armazenada no redux
                             props.GetAllUser(session);
                             setActionFile('');
                             

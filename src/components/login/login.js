@@ -18,6 +18,8 @@ import './login.css';
         e.preventDefault();
         setAction(false);
         setActionButton('Enviando...');
+
+        //Conferir se os dados login e senha enviado para a collection conrresponde com algum usuário
         const db = firebase.firestore();
         db.collection("tweet-perfil-user")
         .where("login", "==", login)
@@ -30,7 +32,7 @@ import './login.css';
                    
                       const id = dados[0].id;
                       const data = dados[0].data;
-                      
+                      //Guardando os dados do usuário na localStorage 
                       localStorage.setItem("session",JSON.stringify({
                                                                       id:id,
                                                                       name:data.name,

@@ -13,7 +13,7 @@ import './css/main.css';
 export class Home extends Component {
 
     componentWillMount() {
-
+        //Pegando os dados da localStorage para ser inserida as infformações do usuário no redux
         const session = JSON.parse(localStorage.getItem('session'));
         
         this.props.GetAllUser(session);

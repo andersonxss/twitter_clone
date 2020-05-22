@@ -12,8 +12,8 @@ class Twitter_Post extends Component {
 
     componentWillMount() {
         //Busca dos POSTS cadastrado
-        const db = firebase.firestore();
-        const rootRef = firebase.database().ref();
+            const db = firebase.firestore();
+            //Buscando a lista de post
              db.collection("tweet-perfil-user").get().then((responseUsers)=>{
               var users =  responseUsers.docs.map((doc)=>{ 
                 
@@ -40,7 +40,7 @@ class Twitter_Post extends Component {
                         }
                 
                      });
-
+                //Enviando o array de post para ser inserido no redux
                 this.props.GetAllPost(returnPosts);
             });
         
@@ -60,6 +60,7 @@ class Twitter_Post extends Component {
         return (
             <div className="list-post-container">
              {
+                //A lista de posts, só será carrada quando houver algum dado cadastrado
                 lista_posts.length>0?
                     lista_posts.map(item=>( 
                         <Twitter_Post_Item 

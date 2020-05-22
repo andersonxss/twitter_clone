@@ -26,7 +26,7 @@ function Tuitar(props) {
 
     async function handleSubmit(e){
         e.preventDefault();
-      
+        //Se state filesAction for igual a true, corresponde que o post realizado pelo o usuário, contém mídia.
         if(filesAction){
             const storage = firebase.storage();
             const uploadTask = storage.ref(`post-item/${filesMidia.name}`).put(filesMidia);
@@ -36,7 +36,8 @@ function Tuitar(props) {
 
             },()=>{
                 storage.ref('post-item').child(filesMidia.name).getDownloadURL().then(url=>{
-                  
+                    //Após receber o requeste do upload, 
+                    //enviaremos a url da mídia para ser inserida colletion tweet-post-item
                     handleCadastroPostItem(url);
                 });
             });
@@ -50,6 +51,7 @@ function Tuitar(props) {
     async function handleCadastroPostItem(url){
       const db = firebase.firestore();
       const post_date =  moment().format('YYYY-MM-DD');
+        //Cadastro de post do usuário
      const retorno = await db.collection('tweet-post-item').add({
                                             post_descricao:text_Tuitar,
                                             post_user_id:props.sesion.id,
@@ -58,6 +60,8 @@ function Tuitar(props) {
                                             post_midia:url
                                             }).then(function() {
                                             console.log("Document successfully written!");
+                                            //A funçãi props.SetPost, foi criada para atualizar o state da lista de post no redux
+                                            //Dessa forma atualizamos o state sem precisar fazer uma nova requisição
                                             props.SetPost(
                                                                 {
                                                                     id:Math.random(),
