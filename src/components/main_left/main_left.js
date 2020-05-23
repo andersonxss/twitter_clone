@@ -19,7 +19,7 @@ export class Main_Left extends Component {
         return (
             <>
             <div className="logo">
-               <a href="index.html"><FaTwitter/></a>
+               <a href={void(0)}><FaTwitter/></a>
             </div>
             <div className="menu">
                   <ListIcons icones={[
