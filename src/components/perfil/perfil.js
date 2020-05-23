@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React, { Component,useState,useEffect } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import {GetAllUser} from '../../service/service_user';
@@ -10,7 +10,32 @@ import './perfil.css';
 function Perfil(props){
 
         const [actionFile,setActionFile]= useState();
+        const [load,setLoad]= useState(false);
+        const [name,setName]= useState('');
+        const [login,setLogin]= useState('');
+        const [capa,setCapa]= useState('');
+        const [url,setUrl]= useState('');
+        
+     
+        useEffect(()=>{
+          
+            renderGetDadosPerfilUser();
+          },[]);
 
+          async function renderGetDadosPerfilUser() {
+
+            const db = firebase.firestore();
+            await db.collection("tweet-perfil-user").doc(props.match.params.id)
+                .get().then((querySnapshot) => {
+                    setName(querySnapshot.data().name);
+                    setLogin(querySnapshot.data().login);
+                    setCapa(querySnapshot.data().capa);
+                    setUrl(querySnapshot.data().url);
+                    setLoad(true)
+                });
+
+        }
+        
         const {getRootProps, getInputProps, isDragActive} = useDropzone({ accept: 'image/*', onDrop: acceptedFiles => {
 
             const file = acceptedFiles[0];
@@ -27,15 +52,9 @@ function Perfil(props){
                         const fileSelect = (actionFile==='perfil'?{url:url}:{capa:url});
                         //Após receber o request de upload, faremos uma nova requisição 
                         //para guardar a url da imagem na collectiond o usuário
-                        db.collection('tweet-perfil-user').doc(props.sesion.id).update(fileSelect).then(function(){
+                        db.collection('tweet-perfil-user').doc(props.match.params.id).update(fileSelect).then(function(){
                             console.log("Document successfully written!");
-                            //Pegando os dados guardado na localStorage para a realização do update
-                            const session = JSON.parse(localStorage.getItem('session'));
-                            const sessionUpdate = ( actionFile==='perfil'? session.url=url : session.capa=url);
-                            localStorage.setItem("session",JSON.stringify(session));
-                            //A função GetAllUser corresponde para atualizar 
-                            //as informações da sessão do usário que se encontra armazenada no redux
-                            props.GetAllUser(session);
+                           renderGetDadosPerfilUser();
                             setActionFile('');
                             
                         }).catch(function(error) {
@@ -45,26 +64,32 @@ function Perfil(props){
                });
         }});
 
-     
         return (
+            <> {load === true?
             <div className="conatainer-perfil">
-                <div className="topo-perfil">
-                    <Link to={props.router.home}><FiArrowLeft/></Link> <span>{props.sesion.name}</span> 
-                </div>
+                
+                    <div className="topo-perfil">
+                        <Link to={props.router.home}><FiArrowLeft/></Link> <span>{name}</span> 
+                    </div>
                 <div className="container-capa">
                     <div className="capa">
-                         <img src={props.sesion.capa}/>
+                         <img src={capa}/>
                           <a href={void(0)}  {...getRootProps({onClick:()=>setActionFile('capa')})}><input {...getInputProps()} /><MdPhotoCamera/></a>
                     </div>
                     <div className="perfil-capa">
-                         <img src={props.sesion.url}/>
+                         <img src={url}/>
                          <a href={void(0)}  {...getRootProps({onClick:()=>setActionFile('perfil')})}><input {...getInputProps()}/><MdPhotoCamera/></a>
                     </div>
                     <div className="perfil-dados-pessoal">
-                    <p>{props.sesion.name}</p>
+                    <p>{name}</p>
                     </div>
                 </div>
+              
+
             </div>
+              : <div className="loader"/>
+            }
+            </>
         )
     
 }

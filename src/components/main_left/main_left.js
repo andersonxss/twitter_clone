@@ -29,7 +29,7 @@ export class Main_Left extends Component {
                                         {icon:<FaRegEnvelope/>,name:'Mensagem',class:"inativo",link:false},
                                         {icon:<FaRegBookmark/>,name:'Itens salvos',class:"inativo",link:false},
                                         {icon:<FaRegListAlt/>,name:'Listas',class:"inativo",link:false},
-                                        {icon:<FaRegUser/>,name:'Perfil',link:true,router:this.props.router.perfil},
+                                        {icon:<FaRegUser/>,name:'Perfil',link:true,router:`${this.props.router.perfil}/${this.props.sesion.id}`},
                                         {icon:<FaRegSun/>,name:'Mais',class:"inativo",link:false},
                                     ]}
                   />
@@ -46,7 +46,7 @@ export class Main_Left extends Component {
 function mapStateToProps(state){
    
     return {
-           
+        sesion : state.user_twitter.fetch_session_user, 
         router : state.router_twitter, 
            
         }

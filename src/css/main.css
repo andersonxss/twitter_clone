@@ -23,7 +23,9 @@ main .main-container{
     max-width: 600px;
     min-width: 400px;
     width:50%;
-    overflow-y: scroll;
+    overflow: hidden;
+    border-left: 1px #676767 solid;
+    border-right: 1px #676767 solid;
 }
 
 main .main-container .topo{
@@ -73,6 +75,35 @@ main .main-container .topo svg:hover{
         background: #17ce6a00!important;
 }
 
+.footer-menu{
+  background-color: #141f2b;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px rgb(37, 50, 65) solid;
+    display: none;
+}
+
+.footer-menu ul{
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+   
+}
+
+.footer-menu ul li{
+    margin-right: 10px;
+}
+
+.footer-menu ul li a {
+    font-size: 25px;
+    color: white;
+}
+
 /* width */
 ::-webkit-scrollbar {
 	width: 2px;
@@ -97,3 +128,68 @@ textarea:focus,input:focus,a:focus,button:focus{
   outline: none !important;
     border: none !important;
 }
+
+@media (max-width:920px) {
+    main{ 
+        width: 100%;
+    }
+    main .main-container{
+        width: 100%;
+    }
+}
+
+@media (min-width:650px) and  (max-width:920px) {
+
+
+    main .main-left .menu ul li{
+        margin-bottom: 15px;
+    }
+
+    main .main-left .menu ul li a{
+        margin-left: 5px;
+    }
+
+    main .main-left .menu ul li a svg{
+        margin-right: 0px;  
+    }
+
+    main .main-left .menu ul li a span{
+        display:none;
+    }
+
+    main .main-left{
+        width: 50px;
+    }
+
+     main .main-left .tweetar{
+          display:none;
+     }
+
+     main .main-right{
+        display: none;
+     }
+}
+
+@media (min-width:300px) and  (max-width:649px) {
+
+         main .main-container{
+            border-left: 1px #67676700 solid;
+            max-width: 100%;
+            min-width: 100%;
+         }
+
+        .main-left{
+            display: none;
+        }
+
+        .main-right{
+            display: none;
+        }
+        
+        .footer-menu{
+            display: block;
+        }
+
+}
+
+

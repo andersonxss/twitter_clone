@@ -69,6 +69,7 @@ class Twitter_Post extends Component {
                         ))
                 :<div className="loader"/>
                 }
+                <div className="list-post-container-footer">Twitter Clone</div>
             </div>
         )
     }

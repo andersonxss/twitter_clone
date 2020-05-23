@@ -108,6 +108,7 @@ function Tuitar(props) {
                         <span>Página Inicial</span> 
                         <AiOutlineStar/>
                 </div>
+                <div className="main-container-center">
                 <div className="area-tuitar">
                     <div className="area-tuitar-container">
                         <div className="area-tuitar-left">
@@ -145,6 +146,7 @@ function Tuitar(props) {
                     </div>
                 </div>
                 <Twitter_Post/>
+                </div>
                 </>
         )
     

@@ -10,17 +10,17 @@ import Pefil from '../perfil/foto';
 
 
 function Twitter_Post_Item(props){
- 
+
     return (
         <>
         <div className="list-post-item">
             <div className="post-foto">
-                 <Pefil url={props.item.urlPerfil}/>
+                 <Pefil url={props.item.urlPerfil} id={props.item.data.post_user_id}/>
             </div>
             <div className="post-descricao">
                 <div className="post-descricao-topo">
                     <div className="post-nome">
-                        <Link to={props.router.perfil}>
+                        <Link to={`${props.router.perfil}/${props.item.data.post_user_id}`}>
                             {props.item.namePerfil}
                         </Link>
                     </div>

@@ -1,11 +1,14 @@
-import React, { PureComponent } from 'react'
+import React  from 'react'
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
+import User from '../../img/user.png';
  function Foto(props){
-    
+   
         return (
             <>
-            <Link to={props.router.perfil}><img src={props.url!=undefined?props.url:props.sesion.url} alt="Perfil"/></Link>
+            <Link to={`${props.router.perfil}/${props.id?props.id:props.sesion.id}`}>
+                <img src={(props.url!=undefined?props.url:(props.sesion.url!=undefined?props.sesion.url:User))} alt="Perfil"/>
+            </Link>
             </>
         )
     
