@@ -36,6 +36,7 @@ function Perfil(props){
 
         }
         
+
         const {getRootProps, getInputProps, isDragActive} = useDropzone({ accept: 'image/*', onDrop: acceptedFiles => {
 
             const file = acceptedFiles[0];
@@ -54,7 +55,23 @@ function Perfil(props){
                         //para guardar a url da imagem na collectiond o usuário
                         db.collection('tweet-perfil-user').doc(props.match.params.id).update(fileSelect).then(function(){
                             console.log("Document successfully written!");
-                           renderGetDadosPerfilUser();
+                            const session = JSON.parse(localStorage.getItem('session'));
+                            
+                            if (actionFile==='perfil') {
+                                setUrl(url);
+                                session.url=url;
+                            } else {
+                                setCapa(url);
+                                session.capa=url;
+                            }
+                            
+                            localStorage.setItem("session",JSON.stringify(session));
+                            //A função GetAllUser corresponde para atualizar 
+                            //as informações da sessão do usário que se encontra armazenada no redux
+                            props.GetAllUser(session);
+
+                          
+
                             setActionFile('');
                             
                         }).catch(function(error) {

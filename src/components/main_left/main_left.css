@@ -52,7 +52,7 @@ main .main-left .menu ul li a svg{
     margin-right: 15px;
 }
 
-main .main-left .menu ul li :hover{
+main .main-left .menu ul li a:hover{
     color: rgb(23, 191, 99);
     background: rgba(23, 191, 99, 0.13);
     border-radius: 20px;
