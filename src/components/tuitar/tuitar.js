@@ -9,7 +9,7 @@ import { RiEmotionHappyLine } from "react-icons/ri";
 import { FaCalendarAlt,FaTimes }from "react-icons/fa";
 import Perfil from '../../img/perfil/user.jpg';
 import Twitter_Post from '../twitter_post/twitter_post';
-import {SetPost} from '../../service/service_post_twitter';
+import {SetPost,SetUploadMidia} from '../../service/service_post_twitter';
 import Pefil from '../perfil/foto';
 import './tuitar.css';
 
@@ -28,18 +28,10 @@ function Tuitar(props) {
         e.preventDefault();
         //Se state filesAction for igual a true, corresponde que o post realizado pelo o usuário, contém mídia.
         if(filesAction){
-            const storage = firebase.storage();
-            const uploadTask = storage.ref(`post-item/${filesMidia.name}`).put(filesMidia);
-            uploadTask.on('state_changed',(snapshot)=>{
-
-            },(error)=>{
-
-            },()=>{
-                storage.ref('post-item').child(filesMidia.name).getDownloadURL().then(url=>{
-                    //Após receber o requeste do upload, 
-                    //enviaremos a url da mídia para ser inserida colletion tweet-post-item
-                    handleCadastroPostItem(url);
-                });
+     
+            props.SetUploadMidia({file:filesMidia,storage:'post-item'}).then((res)=>{
+               
+                handleCadastroPostItem(res);
             });
 
         }else{
@@ -50,7 +42,7 @@ function Tuitar(props) {
     
     async function handleCadastroPostItem(url){
       const db = firebase.firestore();
-      const post_date =  moment().format('YYYY-MM-DD');
+      const post_date =  moment().format();
         //Cadastro de post do usuário
      const retorno = await db.collection('tweet-post-item').add({
                                             post_descricao:text_Tuitar,
@@ -160,6 +152,6 @@ function mapStateToProps(state){
         }
 }
 
-export default connect(mapStateToProps,{SetPost})(Tuitar); 
+export default connect(mapStateToProps,{SetPost,SetUploadMidia})(Tuitar); 
 
 

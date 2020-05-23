@@ -19,8 +19,8 @@ class Twitter_Post extends Component {
                 
                     return {id:doc.id,data:doc.data()}
                 });
-           
-               db.collection("tweet-post-item").get().then((responsePosts) => {
+               
+               db.collection("tweet-post-item").orderBy("post_date", "desc").get().then((responsePosts) => {
                      const returnPosts = responsePosts.docs.map((docPost,i)=>{ 
                        
                         const retornoUser = users.filter((elem => elem.id == docPost.data().post_user_id));

@@ -1,12 +1,14 @@
 import React, { Component,useState } from 'react';
+import {connect} from 'react-redux';
 import {useDropzone} from 'react-dropzone';
 import firebase from '../../service/firebase';
 import { FaTwitter}from "react-icons/fa";
 import { MdPhotoCamera}from "react-icons/md";
 import { Link,Redirect } from 'react-router-dom';
+import {SetUploadMidia} from '../../service/service_post_twitter';
 import './login.css';
 
- function Signup() {
+ function Signup(props) {
 
     const [textButton,setTextButton]    = useState('Cadastrar');
     const [name,setName]                = useState('');
@@ -22,16 +24,9 @@ import './login.css';
         e.preventDefault();
         setTextButton('Enviando...')
         if(filesAction){
-            const storage = firebase.storage();
-            const uploadTask = storage.ref(`perfil/${filesMidia.name}`).put(filesMidia);
-            uploadTask.on('state_changed',(snapshot)=>{
-
-            },(error)=>{
-
-            },()=>{
-                storage.ref('perfil').child(filesMidia.name).getDownloadURL().then(url=>{
-                    handleCadastroUser(url);
-                });
+          
+            props.SetUploadMidia({file:filesMidia,storage:'perfil'}).then((res)=>{
+                handleCadastroUser(res);
             });
 
         }else{
@@ -40,14 +35,15 @@ import './login.css';
 
     }
 
-    function handleCadastroUser(url){
+    async function handleCadastroUser(url){
         const db = firebase.firestore();
-        db.collection('tweet-perfil-user').add({name:name,login:login,senha:senha,url:url,capa:""}).then((request)=>{
-            setTextButton('Cadastrar');
-            setRedirect(true);
+        await db.collection('tweet-perfil-user')
+            .add({name:name,login:login,senha:senha,url:url,capa:""})
+            .then((request)=>{
+                  setTextButton('Cadastrar');
+                   setRedirect(true);
         });
     }
-
 
     const {getRootProps, getInputProps, isDragActive} = useDropzone({ accept: 'image/*', onDrop: acceptedFiles => {
         const file = acceptedFiles[0];
@@ -121,4 +117,6 @@ import './login.css';
         )
     
 }
-export default Signup;
+
+
+export default connect(null,{SetUploadMidia})(Signup); 

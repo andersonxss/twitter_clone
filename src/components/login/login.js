@@ -12,7 +12,7 @@ import './login.css';
     const [action,setAction] = useState(false);
     const [login,setLogin] = useState('');
     const [senha,setSenha] = useState('123456');
-    const [redirect, setRedirect]       = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
     async function handleSubmit(e){
         e.preventDefault();
