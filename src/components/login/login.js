@@ -1,11 +1,12 @@
 import React, { Component,useState } from 'react';
-import firebase from '../../service/firebase';
-import { FaTwitter}from "react-icons/fa";
-import { Link,Redirect }                from 'react-router-dom';
-import Login_Ilustration from "../../img/twitter_login_sidebar_illustration.png";
+import {connect}            from 'react-redux';
+import firebase          from '../../service/firebase';
+import { FaTwitter}      from "react-icons/fa";
+import { Link,Redirect } from 'react-router-dom';
+import {SetSessionUser} from '../../service/service_user';
 import './login.css';
 
- function Login() {
+ function Login(props) {
 
     
     const [actionButton,setActionButton] = useState('Entrar');
@@ -30,16 +31,10 @@ import './login.css';
               
                 if (dados.length) {
                    
-                      const id = dados[0].id;
-                      const data = dados[0].data;
-                      //Guardando os dados do usuário na localStorage 
-                      localStorage.setItem("session",JSON.stringify({
-                                                                      id:id,
-                                                                      name:data.name,
-                                                                      login:data.login,
-                                                                      url:data.url,
-                                                                      capa:data.capa,
-                                                                      }));
+                    const id   = dados[0].id;
+                    const data = dados[0].data;
+                    //Guardando os dados do usuário na localStorage 
+                    props.SetSessionUser({id:id,name:data.name,login:data.login,url:data.url, capa:data.capa});
                     setRedirect(true);
                 } else {
                     setAction(true);
@@ -97,4 +92,13 @@ import './login.css';
         )
     
 }
-export default Login;
+
+function mapStateToProps(state){
+   
+    return {
+           router : state.router_twitter, 
+           
+        }
+}
+
+export default connect(mapStateToProps,{SetSessionUser})(Login); 

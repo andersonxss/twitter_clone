@@ -133,4 +133,20 @@ main .conatainer-perfil .container-capa .perfil-dados-pessoal{
     padding: 5px 0 20px 20px;
     font-size: 16px;
     color: white;
+    justify-content: space-between;
+}
+
+main .conatainer-perfil .container-capa .perfil-dados-pessoal a {
+    background: #141f2b;
+    padding: 10px;
+    margin-right: 35px;
+    border-radius: 20px;
+    border: 2px #16bf63 solid;
+    color: #16bf63;
+    text-decoration: none;
+    
+}
+
+main .conatainer-perfil .container-capa .perfil-dados-pessoal a:hover {
+    background: #2c3238;
 }

@@ -1,7 +1,7 @@
 import React, { Component,useState,useEffect } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import {GetAllUser} from '../../service/service_user';
+import {GetSessionUser,SetSessionUser,GetUpdate} from '../../service/service_user';
 import firebase from '../../service/firebase';
 import {useDropzone} from 'react-dropzone';
 import { FiArrowLeft } from "react-icons/fi";
@@ -9,12 +9,13 @@ import { MdPhotoCamera}from "react-icons/md";
 import './perfil.css';
 function Perfil(props){
 
-        const [actionFile,setActionFile]= useState();
-        const [load,setLoad]= useState(false);
-        const [name,setName]= useState('');
-        const [login,setLogin]= useState('');
-        const [capa,setCapa]= useState('');
-        const [url,setUrl]= useState('');
+        const [session,setSession]       = useState(props.sesion);
+        const [actionFile,setActionFile] = useState();
+        const [load,setLoad]             = useState(false);
+        const [name,setName]             = useState('');
+        const [login,setLogin]           = useState('');
+        const [capa,setCapa]             = useState('');
+        const [url,setUrl]               = useState('');
         
      
         useEffect(()=>{
@@ -31,7 +32,7 @@ function Perfil(props){
                     setLogin(querySnapshot.data().login);
                     setCapa(querySnapshot.data().capa);
                     setUrl(querySnapshot.data().url);
-                    setLoad(true)
+                    setLoad(true);
                 });
 
         }
@@ -47,16 +48,14 @@ function Perfil(props){
 
                 },()=>{
                     storage.ref('perfil').child(file.name).getDownloadURL().then(url=>{
-                        const db = firebase.firestore();
                         //Se a action for perfil o upload irá corresponder para a foto do perfil do usuário
                         // Se não o upload irá para a capa do usuário
                         const fileSelect = (actionFile==='perfil'?{url:url}:{capa:url});
                         //Após receber o request de upload, faremos uma nova requisição 
                         //para guardar a url da imagem na collectiond o usuário
-                        db.collection('tweet-perfil-user').doc(props.match.params.id).update(fileSelect).then(function(){
-                            console.log("Document successfully written!");
-                            const session = JSON.parse(localStorage.getItem('session'));
-                            
+
+                        props.GetUpdate({collection:'tweet-perfil-user',doc:props.match.params.id,data:fileSelect}).then((response)=>{
+                       
                             if (actionFile==='perfil') {
                                 setUrl(url);
                                 session.url=url;
@@ -64,19 +63,16 @@ function Perfil(props){
                                 setCapa(url);
                                 session.capa=url;
                             }
-                            
-                            localStorage.setItem("session",JSON.stringify(session));
-                            //A função GetAllUser corresponde para atualizar 
+
+                            //A função GetSessionUser corresponde para atualizar 
                             //as informações da sessão do usário que se encontra armazenada no redux
-                            props.GetAllUser(session);
+                            props.SetSessionUser(session);
+                            props.GetSessionUser(session);
 
-                          
-
-                            setActionFile('');
-                            
                         }).catch(function(error) {
                             console.error("Error writing document: ", error);
                         });
+
                     });
                });
         }});
@@ -99,6 +95,7 @@ function Perfil(props){
                     </div>
                     <div className="perfil-dados-pessoal">
                     <p>{name}</p>
+                    <Link to={`${props.router.perfil_editar}/${props.match.params.id}`}>Editar perfil</Link> 
                     </div>
                 </div>
               
@@ -120,4 +117,4 @@ function mapStateToProps(state){
         }
 }
 
-export default connect(mapStateToProps,{GetAllUser})(Perfil); 
+export default connect(mapStateToProps,{GetSessionUser,SetSessionUser,GetUpdate})(Perfil); 

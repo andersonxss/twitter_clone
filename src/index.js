@@ -7,8 +7,6 @@ import Home from './home';
 import Login from './components/login/login'
 import Signup from './components/login/signup'
 
-
-
 ReactDOM.render(
   <Provider store={store}>
          <Router basename="/tweet_clone">

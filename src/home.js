@@ -6,15 +6,9 @@ import Main_Left  from './components/main_left/main_left';
 import Main_Right from './components/main_right/main_right';
 import Tuitar     from './components/tuitar/tuitar';
 import Perfil     from './components/perfil/perfil';
-import {GetAllUser} from './service/service_user';
-import { FaTwitter,
-    FaHashtag,
-    FaRegBell,
-    FaRegEnvelope,
-    FaRegBookmark,
-    FaRegListAlt,
-    FaRegUser,
-    FaRegSun}       from "react-icons/fa";
+import Perfil_Editar     from './components/perfil/perfil_editar';
+import {GetSessionUser} from './service/service_user';
+import {FaRegBell,FaRegEnvelope,FaRegUser } from "react-icons/fa";
 import { RiHome7Line }   from "react-icons/ri";
 
 
@@ -25,13 +19,13 @@ export class Home extends Component {
     componentWillMount() {
         //Pegando os dados da localStorage para ser inserida as infformações do usuário no redux
         const session = JSON.parse(localStorage.getItem('session'));
-      this.setState({id:session.id})
-        this.props.GetAllUser(session);
+        this.setState({id:session.id})
+        this.props.GetSessionUser(session);
     }
     
     
     render() {
-        console.log(this.state.id);
+        
         return (
             <Router basename="/tweet_clone">
             <>
@@ -44,6 +38,7 @@ export class Home extends Component {
                    
                         <Route exact path={this.props.router.home} component={Tuitar}/>
                         <Route path={`${this.props.router.perfil}/:id`} component={Perfil}/>
+                        <Route path={`${this.props.router.perfil_editar}/:id`} component={Perfil_Editar}/>
                     
                 </div>
                 <Main_Right/>
@@ -73,5 +68,5 @@ function mapStateToProps(state){
         }
 }
 
-export default connect(mapStateToProps,{GetAllUser})(Home); 
+export default connect(mapStateToProps,{GetSessionUser})(Home); 
 

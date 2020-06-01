@@ -14,9 +14,9 @@ main{
     height: 100vh;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
    
 }
-
 
 main .main-container{
     float: left;
@@ -130,23 +130,38 @@ textarea:focus,input:focus,a:focus,button:focus{
 }
 
 @media (max-width:920px) {
+    
     main{ 
         width: 100%;
     }
+
     main .main-container{
         width: 100%;
+        
+    }
+
+    main .main-left .menu ul li a {
+     
+        font-size: 18px;
+       
     }
 }
 
 @media (min-width:650px) and  (max-width:920px) {
 
+    main .main-left .logo{
+        margin-left: 10px;
+        font-size: 25px;
+    }
 
     main .main-left .menu ul li{
         margin-bottom: 15px;
     }
 
-    main .main-left .menu ul li a{
-        margin-left: 5px;
+    main .main-left .menu ul li a {
+        justify-content: center;
+
+        padding: 10px 5px;
     }
 
     main .main-left .menu ul li a svg{
@@ -161,22 +176,23 @@ textarea:focus,input:focus,a:focus,button:focus{
         width: 50px;
     }
 
-     main .main-left .tweetar{
+    main .main-left .tweetar{
           display:none;
-     }
+    }
 
-     main .main-right{
+    main .main-right{
         display: none;
-     }
+    }
+
 }
 
 @media (min-width:300px) and  (max-width:649px) {
 
-         main .main-container{
+        main .main-container{
             border-left: 1px #67676700 solid;
             max-width: 100%;
             min-width: 100%;
-         }
+        }
 
         .main-left{
             display: none;
@@ -188,6 +204,10 @@ textarea:focus,input:focus,a:focus,button:focus{
         
         .footer-menu{
             display: block;
+        }
+
+        .main-container .list-post-container .list-post-item{
+            padding: 0px 0px 0px 5px;
         }
 
 }
