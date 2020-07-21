@@ -18,9 +18,9 @@ export class Main_Left extends Component {
     render() {
         return (
             <>
-            <div className="logo">
-               <a href={void(0)}><FaTwitter/></a>
-            </div>
+            <a href={this.props.router.home} className="logo">
+                <FaTwitter/>
+            </a>
             <div className="menu">
                   <ListIcons icones={[
                                         {icon:<RiHome7Line/>,name:'Página Inicial',link:true,router:this.props.router.home},

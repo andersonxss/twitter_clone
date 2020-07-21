@@ -97,7 +97,7 @@ function Tuitar(props) {
 
     return (<>
                 <div className="topo">
-                        <span>Página Inicial</span> 
+                        <span><b>Página Inicial</b></span> 
                         <AiOutlineStar/>
                 </div>
                 <div className="main-container-center">

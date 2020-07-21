@@ -9,7 +9,9 @@ function List_Icons(props) {
       const listas =  props.icones.map((elem,i)=>{
          return <li key={i}>
          {
-            elem.link ? <Link to={elem.router}> {elem.icon}  <span>{elem.name}</span></Link>:<a href={void(0)} className={elem.class}> {elem.icon}  <span>{elem.name}</span></a>
+            elem.link ? <Link to={elem.router}>
+                          <div className="container-menu"> {elem.icon}  <span>{elem.name}</span></div>
+                        </Link>:<a href={void(0)} className={elem.class}> <div className="container-menu">{elem.icon}  <span>{elem.name}</span></div></a>
           }
                 </li>;
        });

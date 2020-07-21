@@ -10,7 +10,7 @@ body{
 }
 
 main{
-    width: 80%;
+    width: 100%;
     height: 100vh;
     margin: 0 auto;
     display: flex;
@@ -20,7 +20,7 @@ main{
 
 main .main-container{
     float: left;
-    max-width: 600px;
+    max-width: 630px;
     min-width: 400px;
     width:50%;
     overflow: hidden;
@@ -39,7 +39,7 @@ main .main-container .topo{
 
 main .main-container .topo span{
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 10px;
 }
 

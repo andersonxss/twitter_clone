@@ -34,7 +34,7 @@
 
 .main-container .main-container-center .area-tuitar .area-tuitar-container .area-tuitar-right .form-post{
     width: 94%;
-    height: 32px;
+    height: 15px;
     background: #141f2b;
     font-size: 16px;
     color: white;
@@ -90,7 +90,7 @@
 
 .main-container .main-container-center .area-tuitar .area-tuitar-right .list-icones-post ul{
     float: left;
-    width: 40%;
+    width: 30%;
     height: 40px;
     display: flex;
     justify-content: space-around;
